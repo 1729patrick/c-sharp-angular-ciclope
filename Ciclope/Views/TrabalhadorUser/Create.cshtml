@@ -1,0 +1,40 @@
+﻿@model Ciclope.Models.TrabalhadorUser
+
+@{
+    ViewData["Title"] = "Adicionar Utilizador";
+    var idEmpresa = @ViewBag.IdEmpresa;
+}
+
+<div class="row h-100">
+    <div class="col-md-12 row h-100 justify-content-center align-items-center">
+        <form method="post" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control"
+                        asp-items="ViewBag.Users">
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="EmpresaId" value=@idEmpresa />
+
+            <div class="form-group">
+                <label asp-for="RoleId" class="control-label"></label>
+                <select asp-for="RoleId" class="form-control"
+                        asp-items="ViewBag.Roles">
+                </select>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <div class="row">
+
+                <div class="col">
+                    <button type="submit" onclick="return validateInput()" class="btn btn-sm btn-outline-secondary form-control">Adicionar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+ 

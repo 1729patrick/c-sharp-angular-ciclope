@@ -1,0 +1,42 @@
+﻿<style>
+    ul ul {
+        list-style-type: none;
+        padding-inline-start: 20px;
+    }
+</style>
+
+            
+@inject SignInManager<Ciclope.Models.CiclopeUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar" style="border-right: 1px solid #ccc; height: 100%; overflow-x: hidden;">
+    <div  class="sidebar-sticky" style="padding-top: 10px; color: inherit;">
+        <ul class="nav flex-column">
+             <li class="nav-item">
+                <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" asp-page="./Index">
+                    <i class="bi bi-file-earmark-person"></i>
+                    Perfil
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" asp-page="./Email">
+                    <i class="bi bi-file-earmark-person"></i>
+                    Email
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" asp-page="./TwoFactorAuthentication">
+                    <i class="bi bi-file-earmark-person"></i>
+                    Dois fatores de autenticação
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" asp-page="./PersonalData" id="personal-data">
+                    <i class="bi bi-file-earmark-person"></i>
+                    Dados pessoais
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

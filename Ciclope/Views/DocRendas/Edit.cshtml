@@ -1,0 +1,114 @@
+﻿@model Ciclope.Models.DocRendas
+
+@{
+    ViewData["Title"] = "Editar Renda";
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div class="form-group row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="IdEmpresa" />
+                <input type="hidden" asp-for="LocalFicheiro" />
+
+                <div class="col">
+                    <label asp-for="EntidadeNome" class="control-label"></label>
+                    <input asp-for="EntidadeNome" class="form-control" />
+                    <span asp-validation-for="EntidadeNome" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="EntidadeNif" class="control-label"></label>
+                    <input asp-for="EntidadeNif" class="form-control" />
+                    <span asp-validation-for="EntidadeNif" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="LocatorioNome" class="control-label"></label>
+                    <input asp-for="LocatorioNome" class="form-control" />
+                    <span asp-validation-for="LocatorioNome" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="LocatorioNif" class="control-label"></label>
+                    <input asp-for="LocatorioNif" class="form-control" />
+                    <span asp-validation-for="LocatorioNif" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Localizacao" class="control-label"></label>
+                    <input asp-for="Localizacao" class="form-control" />
+                    <span asp-validation-for="Localizacao" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Arrendamento" /> @Html.DisplayNameFor(model => model.Arrendamento)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="PeriodoRendaInicio" class="control-label"></label>
+                    <input asp-for="PeriodoRendaInicio" class="form-control" />
+                    <span asp-validation-for="PeriodoRendaInicio" class="text-danger"></span>
+                </div>
+
+                <div class="col">
+                    <label asp-for="PeriodoRendaFim" class="control-label"></label>
+                    <input asp-for="PeriodoRendaFim" class="form-control" />
+                    <span asp-validation-for="PeriodoRendaFim" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="RetencaoIRS" class="control-label"></label>
+                    <input asp-for="RetencaoIRS" class="form-control" />
+                    <span asp-validation-for="RetencaoIRS" class="text-danger"></span>
+                </div>
+
+                <div class="col">
+                    <label asp-for="ImportanciaRecebida" class="control-label"></label>
+                    <input asp-for="ImportanciaRecebida" class="form-control" />
+                    <span asp-validation-for="ImportanciaRecebida" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="NRecibosVenda" class="control-label"></label>
+                    <input asp-for="NRecibosVenda" class="form-control" />
+                    <span asp-validation-for="NRecibosVenda" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="DataRecebimento" class="control-label"></label>
+                    <input asp-for="DataRecebimento" class="form-control" />
+                    <span asp-validation-for="DataRecebimento" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="DataEmissao" class="control-label"></label>
+                    <input asp-for="DataEmissao" class="form-control" />
+                    <span asp-validation-for="DataEmissao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

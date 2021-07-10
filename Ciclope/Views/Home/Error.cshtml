@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Erro";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row h-100">
+        <partial name="_DisplaySideMenuPartial" />
+        <div class="col-md-10">
+            <div class="row h-100 justify-content-center align-items-center">
+                <img src="/images/Error404.gif" class="detailImage">
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row h-100 justify-content-center align-items-center">
+        <div>
+            <img src="/images/Error404.gif" class="detailImage">
+        </div>
+    </div>
+}

@@ -1,0 +1,46 @@
+﻿@model Ciclope.Models.DividaSS
+
+@{
+    ViewData["Title"] = "Criar Divida SS";
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Create" mothod="post" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmpresaId" value=@ViewBag.IdEmpresa />
+
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" type="date" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Divida" class="control-label"></label>
+                <input asp-for="Divida" class="form-control" type="number" />
+                <span asp-validation-for="Divida" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@ViewBag.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+        <script src="https://cdn.tiny.cloud/1/n94ifuzvl80pchikopiwgz2esrw8n28dwcywvpejlqrregfp/tinymce/5/tinymce.min.js"></script>
+    }
+

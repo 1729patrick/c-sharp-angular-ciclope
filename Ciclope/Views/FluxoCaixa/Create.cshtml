@@ -1,0 +1,39 @@
+﻿@model Ciclope.Models.CashFlow
+
+@{
+    ViewData["Title"] = "Criar Fluxo de Caixa";
+    var idEmpresa = @ViewBag.idEmpresa;
+}
+<div class="row h-100 ">
+    <partial name="_DisplaySideMenuPartial" for="@idEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form method="post" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div class="form-group row">
+                <input type="hidden" asp-for="IdEmpresa" value=@ViewBag.IdEmpresa />
+                <label asp-for="IdFatura" class="control-label"></label>
+                <select asp-for="IdFatura" class="form-control"
+                        asp-items="ViewBag.Faturas">
+                </select>
+                <span asp-validation-for="IdFatura" class="text-danger"></span>
+
+                <div class="checkbox control-label" style="margin-top: 10px">
+                    <label asp-for="Cliente">
+                        <input asp-for="Cliente" />
+                        @Html.DisplayNameFor(m => m.Cliente)
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@ViewBag.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <button type="submit" onclick="return validateInput()" class="btn btn-sm btn-outline-secondary form-control">Criar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model Ciclope.Models.DocDRI
+@using Ciclope.Services
+@inject ICurrency Currency
+
+@{
+    ViewData["Title"] = "DRI";
+}
+
+<style>
+    .containerPDF {
+        width: 100%;
+        height: 500px;
+        margin: 0 auto;
+        margin-bottom: 1rem !important;
+    }
+</style>
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa"/>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <a href="@Url.Action("DownloadFile", "DocDRI", new { id = Model.Id})" class="btn btn-sm btn-outline-secondary">
+                        Resumo
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-flex">
+            <div class="col-md-6">
+                <p style="margin-left: 20px;">Data : @Model.DataRegisto.ToString("d")</p>
+                <p style="margin-left: 20px;">Estado: @Model.Estado</p>
+                <p style="margin-left: 20px;">Total Remunerações: @Currency.Format(Model.TotalRemuneracoes)</p>
+                <p style="margin-bottom: 75px; margin-left: 20px;">Total Contribuições: @Currency.Format(Model.TotalContribuicoes)</p>
+            </div>
+            <div class="col-md-6">
+                <div class="containerPDF">
+                    <embed src="@Url.Action("GetFile", "DocDRI", new { id = Model.Id})" style="width:100%; height:500px; border-radius:5px; border:1px solid #bbb9b9">
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

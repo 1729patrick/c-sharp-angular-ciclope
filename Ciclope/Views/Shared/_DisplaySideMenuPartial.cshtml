@@ -1,0 +1,182 @@
+<style>
+    ul ul {
+        list-style-type: none;
+        padding-inline-start: 20px;
+    }
+</style>
+
+
+<nav id="sidebar" class="col-md-2 d-none d-md-block sidebar" style="border-right: 1px solid #ccc; height: 100%; background-color: #f8f9fa; overflow-x: hidden;">
+    <div class="sidebar-sticky" style="padding: 10px 0; color: inherit;">
+            <ul class="nav flex-column">
+            
+                <li class="nav-item">
+                    <a class="nav-link" style="color: inherit;" asp-controller="Empresa" asp-action="Menu" asp-route-id=@Model>
+                        <i class="bi bi-speedometer"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                 @if (User.IsInRole("Administrator") || User.IsInRole("Financeiro"))
+                {
+                <li class="nav-item">
+                    <a href="#documentosSubmenu" id="documento" data-toggle="collapse" aria-expanded="true" class="nav-link" style="color: inherit;">
+                        <i class="bi bi-archive"></i>
+                        Documentos
+                    </a>
+                    <ul class="collapse show" id="documentosSubmenu">
+                        <li class="nav-item">
+                            <a class="nav-link" id="PME" asp-area="" asp-controller="CertificadoPME" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Certificados PME
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Renda" asp-area="" asp-controller="DocRendas" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Rendas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Fundos" asp-area="" asp-controller="DocFundosCompensacao" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Fundos Compensação
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="IMI" asp-area="" asp-controller="DocIMI" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Imóveis
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Fatura" asp-area="" asp-controller="Faturas" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Faturas
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="Certidao" asp-area="" asp-controller="CertificadoPermanente" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Cert. Permanentes
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="DMR" asp-area="" asp-controller="DocDMR" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                DMR
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="IUC" asp-area="" asp-controller="DocIUC" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                IUC
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="IVA" asp-area="" asp-controller="DocsIVA" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                IVA
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="DRI" asp-area="" asp-controller="DocDRI" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                DRI
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Verdes" asp-area="" asp-controller="RecibosVerdes" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Recibos Verdes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="CAT" asp-area="" asp-controller="CertidaoAT" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Certidões não dívida AT
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="CSS" asp-area="" asp-controller="CertidaoSS" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Certidões não dívida SS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="M22" asp-area="" asp-controller="M22" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                M22
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="IES" asp-area="" asp-controller="IES" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                IES
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="RU" asp-area="" asp-controller="DocRelatorioUnico" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Relatórios Únicos
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="CRC" asp-area="" asp-controller="DocCRC" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                CRC
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="BCB" asp-area="" asp-controller="DocBCB" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                BCB
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                }
+                
+                @if (User.IsInRole("Administrator") || User.IsInRole("Contabilista"))
+                {
+                <li class="nav-item">
+                    <a href="#financeiroSubmenu" id="financeiro" data-toggle="collapse" aria-expanded="true" class="nav-link" style="color: inherit;">
+                        <i class="bi bi-wallet2"></i>
+                        Financeiro
+                    </a>
+                    <ul class="collapse show" id="financeiroSubmenu">
+                        <li class="nav-item">
+                            <a class="nav-link" id="DAT" asp-area="" asp-controller="DividaAT" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Dívida AT
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="DSS" asp-area="" asp-controller="DividaSS" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Dívida SS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="DSS" asp-area="" asp-controller="FluxoCaixa" asp-action="Index" asp-route-id=@Model>
+                                <i class="bi bi-patch-check"></i>
+                                Fluxos de Caixa
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                }
+        </ul>
+    </div>
+</nav>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $("#sidebarCollapse").on('click', function (event) {
+                //$("#sidebar").toggleClass('active');
+            });
+        });
+    </script>
+}

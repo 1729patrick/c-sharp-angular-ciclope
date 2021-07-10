@@ -1,0 +1,82 @@
+﻿@model Ciclope.Models.DocCRC
+
+@{
+    ViewData["Title"] = "Editar CRC";
+}
+
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    .col {
+        flex-grow: 0;
+    }
+</style>
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdEmpresa" />
+            <input type="hidden" asp-for="LocalFicheiro" />
+            <input type="hidden" asp-for="DataSubmissao" />
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Nif" class="control-label"></label>
+                    <input asp-for="Nif" class="form-control" />
+                    <span asp-validation-for="Nif" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Total" class="control-label"></label>
+                    <input asp-for="Total" class="form-control" />
+                    <span asp-validation-for="Total" class="text-danger"></span>
+                </div>
+               
+            </div>
+            <div class="form-group row">
+             <div class="col">
+                    <label asp-for="EmIncumprimento" class="control-label"></label>
+                    <input asp-for="EmIncumprimento" class="form-control" />
+                    <span asp-validation-for="EmIncumprimento" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="MontantePotencial" class="control-label"></label>
+                    <input asp-for="MontantePotencial" class="form-control" />
+                    <span asp-validation-for="MontantePotencial" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="NProdutos" class="control-label"></label>
+                    <input asp-for="NProdutos" class="form-control" />
+                    <span asp-validation-for="NProdutos" class="text-danger"></span>
+                </div>
+              
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                    <label asp-for="DataEmissao" class="control-label"></label>
+                    <input asp-for="DataEmissao" class="form-control" />
+                    <span asp-validation-for="DataEmissao" class="text-danger"></span>
+                </div>
+                </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

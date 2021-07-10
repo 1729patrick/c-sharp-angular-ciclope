@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Ciclope.Models.CashFlow>
+@using Ciclope.Services
+@inject ICurrency Currency
+
+
+@{
+    ViewData["Title"] = "Lista Fluxos de Caixa";
+    var idEmpresa = @ViewBag.idEmpresa;
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="@idEmpresa" />
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary"
+                            onclick="location.href='@Url.Action("Create", "FluxoCaixa", new { id = @ViewBag.IdEmpresa})'" id="create">
+                        Novo Fluxo de Caixa
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Saldo</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Data.ToString("d")</td>
+                    @if (item.Cliente)
+                    {
+                        <td>Cliente</td>
+                    }
+                    else
+                    {
+                        <td>Fornecedor</td>
+                    }
+                    <td>@Currency.Format(item.Valor)</td>
+                    <td>@Currency.Format(item.Saldo)</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id" id="delete">
+                            <i class="bi bi-x-circle"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </main>
+</div>

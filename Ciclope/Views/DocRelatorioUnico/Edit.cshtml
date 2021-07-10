@@ -1,0 +1,87 @@
+﻿@model Ciclope.Models.DocRelatorioUnico
+
+@{
+    ViewData["Title"] = "Editar Relatório Único";
+}
+
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    .col {
+        flex-grow: 0;
+    }
+</style>
+
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdEmpresa" />
+            <input type="hidden" asp-for="Ano" />
+            <input type="hidden" asp-for="LocalAnexo0" />
+            <input type="hidden" asp-for="LocalAnexoA" />
+            <input type="hidden" asp-for="LocalAnexoB" />
+            <input type="hidden" asp-for="LocalAnexoC" />
+            <input type="hidden" asp-for="LocalAnexoD" />
+            <input type="hidden" asp-for="LocalAnexoE" />
+            <input type="hidden" asp-for="LocalAnexoF" />
+            <input type="hidden" asp-for="LocalCertificado" />
+            <div class="form-group row">
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo A</label>
+                    <input type="file" name="LocalAnexoA" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoA" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo B</label>
+                    <input type="file" name="LocalAnexoB" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoB" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo C</label>
+                    <input type="file" name="LocalAnexoC" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoC" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo D</label>
+                    <input type="file" name="LocalAnexoD" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoD" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo E</label>
+                    <input type="file" name="LocalAnexoE" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoE" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label class="control-label">Ficheiro Anexo F</label>
+                    <input type="file" name="LocalAnexoF" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalAnexoF" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label class="control-label">Ficheiro Certificado</label>
+                    <input type="file" name="LocalCertificado" id="uploadBox" class="form-control" style="height: 44px" />
+                    <span asp-validation-for="LocalCertificado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

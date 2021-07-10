@@ -1,0 +1,35 @@
+﻿@model Ciclope.Models.Empresa
+@using Ciclope.Services
+@inject ICurrency Currency
+
+@{
+    ViewData["Title"] = "Empresa";
+}
+
+
+
+<div class="row h-100">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+        </div>
+        <div class="d-md-flex">
+            <div class="col-md-6">
+                <p style="margin-left: 20px;">Nome: @Model.Nome</p>
+                <p style="margin-left: 20px;">Nif: @Model.Nif</p>
+                <p style="margin-left: 20px;">Morada: @Model.Morada</p>
+                <p style="margin-left: 20px;">Codigo Postal: @Model.CodigoPostal</p>
+                <p style="margin-left: 20px;">Cidade: @Model.Cidade</p>
+                <p style="margin-left: 20px;">Pais: @Model.Pais</p>
+                <p style="margin-left: 20px;">Email: @Model.Email</p>
+                <p style="margin-left: 20px;">Telefone: @Model.Telefone</p>
+                <p style="margin-bottom: 75px; margin-left: 20px;">Api Key: @Model.ApiKey</p>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="GenerateKey" asp-route-id=@Model.Id>
+                    Reset Api Key
+                </a>
+            </div>
+        </div>
+    </main>
+</div>

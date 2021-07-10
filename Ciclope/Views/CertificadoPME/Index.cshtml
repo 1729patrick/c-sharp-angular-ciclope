@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Ciclope.Models.DocCertificadoPME>
+
+@{
+    ViewData["Title"] = "Lista Certificados PME";
+    var idEmpresa = @ViewBag.idEmpresa;
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="@idEmpresa"/>  
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary"
+                            onclick="location.href='@Url.Action("Create", "CertificadoPME",new { id = @ViewBag.IdEmpresa})'">Novo Certificado PME</button>
+                    
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Data de decisão</th>
+                <th>Data de efeito</th>
+                <th>Classificação</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model) 
+            {
+                <tr>
+                    <td>@item.DataDecissao.ToString("d")</td>
+                    <td>@item.DataEfeito.ToString("d")</td>
+                    <td>@item.PMEClassificacao.Classificacao</td>
+                   <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">
+                    <i class="bi bi-pen"></i>
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <i class="bi bi-info-circle"></i>
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id">
+                    <i class="bi bi-x-circle"></i>
+                </a>
+            </td>
+                </tr>
+            }
+        </table>
+    </main>
+</div>

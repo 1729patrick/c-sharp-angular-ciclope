@@ -1,0 +1,98 @@
+﻿@model Ciclope.Models.DocIES
+
+@{
+    ViewData["Title"] = "Editar IES";
+}
+
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    .col {
+        flex-grow: 0;
+    }
+</style>
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div class="form-group row">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="IdEmpresa" />
+                <input type="hidden" asp-for="LocalFicheiro" />
+                <div class="col">
+                    <label asp-for="DataValidade" class="control-label"></label>
+                    <input asp-for="DataValidade" class="form-control" />
+                    <span asp-validation-for="DataValidade" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Nif" class="control-label"></label>
+                    <input asp-for="Nif" class="form-control" />
+                    <span asp-validation-for="Nif" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col" style="display:none">
+                    <label asp-for="LocalFicheiro" class="control-label"></label>
+                    <input asp-for="LocalFicheiro" class="form-control" />
+                    <span asp-validation-for="LocalFicheiro" class="text-danger"></span>
+                </div>
+                <div class="col" style="display:none">
+                    <label asp-for="LocalComprovativo" class="control-label"></label>
+                    <input asp-for="LocalComprovativo" class="form-control" />
+                    <span asp-validation-for="LocalComprovativo" class="text-danger"></span>
+                </div>
+                <div class="col" style="display:none">
+                    <label asp-for="LocalPagamento" class="control-label"></label>
+                    <input asp-for="LocalPagamento" class="form-control" />
+                    <span asp-validation-for="LocalPagamento" class="text-danger"></span>
+                </div>
+
+                <div class="col">
+                    <label asp-for="Valor" class="control-label"></label>
+                    <input asp-for="Valor" class="form-control" />
+                    <span asp-validation-for="Valor" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Referencia" class="control-label"></label>
+                    <input asp-for="Referencia" class="form-control" />
+                    <span asp-validation-for="Referencia" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="LocalPagamento" class="control-label"></label>
+                    <input type="file" name="LocalPagamento" class="form-control" />
+                    <span asp-validation-for="LocalPagamento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="LocalComprovativo" class="control-label"></label>
+                    <input type="file" name="LocalComprovativo" class="form-control" />
+                    <span asp-validation-for="LocalComprovativo" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Entidade" class="control-label"></label>
+                    <input asp-for="Entidade" class="form-control" />
+                    <span asp-validation-for="Entidade" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

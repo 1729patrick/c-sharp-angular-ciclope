@@ -1,0 +1,126 @@
+﻿@model Ciclope.Models.DocRecibosVerdes
+
+@{
+    ViewData["Title"] = "Editar Recibo Verde";
+}
+
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    .col {
+        flex-grow: 0;
+    }
+</style>
+
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdEmpresa" />
+            <input type="hidden" asp-for="LocalFicheiro" />
+            <input type="hidden" asp-for="DataEmissao" />
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="TransmitenteAtividade" class="control-label"></label>
+                    <input asp-for="TransmitenteAtividade" class="form-control" />
+                    <span asp-validation-for="TransmitenteAtividade" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="TransmitenteNif" class="control-label"></label>
+                    <input asp-for="TransmitenteNif" class="form-control" />
+                    <span asp-validation-for="TransmitenteNif" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="TransmitenteDomicilio" class="control-label"></label>
+                    <input asp-for="TransmitenteDomicilio" class="form-control" />
+                    <span asp-validation-for="TransmitenteDomicilio" class="text-danger"></span>
+                </div>                
+            </div>
+            <div class="form-group row">
+            <div class="col">
+                    <label asp-for="AdquirenteMorada" class="control-label"></label>
+                    <input asp-for="AdquirenteMorada" class="form-control" />
+                    <span asp-validation-for="AdquirenteMorada" class="text-danger"></span>
+                </div>
+             <div class="col">
+                    <label asp-for="TransmitenteNome" class="control-label"></label>
+                    <input asp-for="TransmitenteNome" class="form-control" />
+                    <span asp-validation-for="TransmitenteNome" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="AdquirenteNome" class="control-label"></label>
+                    <input asp-for="AdquirenteNome" class="form-control" />
+                    <span asp-validation-for="AdquirenteNome" class="text-danger"></span>
+                </div>
+                
+            </div>
+            <div class="form-group row">
+            <div class="col">
+                    <label asp-for="AdquirenteNif" class="control-label"></label>
+                    <input asp-for="AdquirenteNif" class="form-control" />
+                    <span asp-validation-for="AdquirenteNif" class="text-danger"></span>
+                </div>
+             <div class="col">
+                    <label asp-for="DadosDataTransmissao" class="control-label"></label>
+                    <input asp-for="DadosDataTransmissao" class="form-control" />
+                    <span asp-validation-for="DadosDataTransmissao" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="DadosDescricao" class="control-label"></label>
+                    <input asp-for="DadosDescricao" class="form-control" />
+                    <span asp-validation-for="DadosDescricao" class="text-danger"></span>
+                </div>
+               
+            </div>
+            <div class="form-group row">
+             <div class="col">
+                    <label asp-for="DadosValorBase" class="control-label"></label>
+                    <input asp-for="DadosValorBase" class="form-control" />
+                    <span asp-validation-for="DadosValorBase" class="text-danger"></span>
+                </div>
+             <div class="col">
+                    <label asp-for="DadosIva" class="control-label"></label>
+                    <input asp-for="DadosIva" class="form-control" />
+                    <span asp-validation-for="DadosIva" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="DadosImpostoSelo" class="control-label"></label>
+                    <input asp-for="DadosImpostoSelo" class="form-control" />
+                    <span asp-validation-for="DadosImpostoSelo" class="text-danger"></span>
+                </div>
+                
+            </div>
+            <div class="form-group row">
+            <div class="col">
+                    <label asp-for="DadosIRS" class="control-label"></label>
+                    <input asp-for="DadosIRS" class="form-control" />
+                    <span asp-validation-for="DadosIRS" class="text-danger"></span>
+                </div>
+            <div class="col">
+                    <label asp-for="FaturaRecibo" class="control-label"></label>
+                    <input asp-for="FaturaRecibo" class="form-control" />
+                    <span asp-validation-for="FaturaRecibo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+        <script src="https://cdn.tiny.cloud/1/n94ifuzvl80pchikopiwgz2esrw8n28dwcywvpejlqrregfp/tinymce/5/tinymce.min.js"></script>
+    }

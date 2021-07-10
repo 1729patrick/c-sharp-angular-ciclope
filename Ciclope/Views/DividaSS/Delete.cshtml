@@ -1,0 +1,32 @@
+﻿@model Ciclope.Models.DividaSS
+@using Ciclope.Services
+@inject ICurrency Currency
+
+
+@{
+    ViewData["Title"] = "Apagar Divida SS";
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="EmpresaId" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Delete">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <input type="hidden" asp-for="Id" />
+            <p>Data: @Model.Data.ToString("d")</p>
+            <p>Divida: @Currency.Format(Model.Divida)</p>
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.EmpresaId class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Apagar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

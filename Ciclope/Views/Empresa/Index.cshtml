@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Ciclope.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Lista de Empresas";
+    var idEmpresa = @ViewBag.idEmpresa;
+}
+
+
+<div class="row h-100">
+    <main role="main" class="col-md-12 ml-sm-auto px-4" style="padding-left: 35px !important;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="location.href='@Url.Action("Create", "Empresa")'">
+                        Nova Empresa
+                    </button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Morada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Morada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cidade)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Pais)
+                    </td>
+                    <td>
+                        <a asp-action="Menu" asp-route-id="@item.Id">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                        </a>
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <span>
+                                <a asp-controller="TrabalhadorUser" asp-action="Index" asp-route-id="@item.Id">
+                                    <i class="bi bi-people"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" id="edit">
+                                    <i class="bi bi-pen"></i>
+                                </a> 
+                                <a asp-action="Details" asp-route-id="@item.Id" id="details">
+                                    <i class="bi bi-info-circle"></i>
+                                </a> 
+                                
+                                <a asp-action="Delete" asp-route-id="@item.Id" id="delete">
+                                    <i class="bi bi-x-circle"></i>
+                                </a>
+                            </span>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </main>
+</div>

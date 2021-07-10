@@ -1,0 +1,24 @@
+﻿@model Ciclope.Models.Empresa
+@using Ciclope.Services
+@inject ICurrency Currency
+
+@{
+    ViewData["Title"] = "Minha Empresa";
+}
+
+ @*@Currency.Format(*@ 
+
+
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="Id" />
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="height: 100%">
+        <div style="display:flex; flex-wrap:wrap; justify-content: space-between; padding: 10px; height: 100%; overflow: scroll">
+            <financas-resumo key=@Model.ApiKey></financas-resumo>
+            <divida-pizza key=@Model.ApiKey></divida-pizza>
+            <divida-bar type="DividaSS" key=@Model.ApiKey></divida-bar>
+            <divida-bar type="DividaAT" key=@Model.ApiKey></divida-bar>
+            <divida-line key=@Model.ApiKey></divida-line>
+        </div>
+    </main>
+</div>

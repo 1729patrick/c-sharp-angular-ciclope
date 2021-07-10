@@ -1,0 +1,43 @@
+﻿@model Ciclope.Models.TrabalhadorUser
+
+@{
+    ViewData["Title"] = "Remover Utilizador";
+}
+
+<div class="row h-100 ">
+    <div class="col-md-12 row h-100 justify-content-center align-items-center">
+        <form asp-action="Delete">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+             <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.User.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.User.Nif)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User.Nif)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.User.Telemovel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User.Telemovel)
+            </dd>
+        </dl>
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id="@Model.EmpresaId" class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Remover" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

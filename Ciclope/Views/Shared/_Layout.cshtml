@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div style="float: left;">
+        <title>@ViewData["Title"] - Ciclope</title>
+    </div>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="~/css/body.css" />*@
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin="" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Empresa" asp-action="Index">Ciclope</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid fill-height" style="margin-top: -16px;">
+        @RenderBody()
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div style="width: 100%;padding-right: 25px;background-color: #424548;margin-right: 25px;">
+            <div class="row h-100 justify-content-end align-items-end">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="font-size: 1rem;color: white;">Programação Visual · 2021 · Ciclope.PT</a>
+                <a class="navbar-brand" style="font-size: 1rem;color: white;" href="https://ciclope.azurewebsites.net/swagger/index.html" target="_blank">API</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/684cd71d0a.js" crossorigin="anonymous"></script>
+
+    <environment include="Development">
+        <script type="text/javascript" src="http://localhost:4200/runtime.js"></script>
+        <script type="text/javascript" src="http://localhost:4200/polyfills.js"></script>
+        <script type="text/javascript" src="http://localhost:4200/styles.js"></script>
+        <script type="text/javascript" src="http://localhost:4200/scripts.js"></script>
+        <script type="text/javascript" src="http://localhost:4200/vendor.js"></script>
+        <script type="text/javascript" src="http://localhost:4200/main.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script asp-src-include="~/Apps/dist/core/runtime-es2015.*.js" type="module"></script>
+        <script asp-src-include="~/Apps/dist/core/polyfills-es2015.*.js" type="module"></script>
+        <script asp-src-include="~/Apps/dist/core/runtime-es5.*.js" nomodule></script>
+        <script asp-src-include="~/Apps/dist/core/polyfills-es5.*.js" nomodule></script>
+        <script asp-src-include="~/Apps/dist/core/scripts.*.js"></script>
+        <script asp-src-include="~/Apps/dist/core/main-es2015.*.js" type="module"></script>
+        <script asp-src-include="~/Apps/dist/core/main-es5.*.js" nomodule></script>
+    </environment>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

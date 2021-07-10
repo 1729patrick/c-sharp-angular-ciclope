@@ -1,0 +1,51 @@
+﻿table {
+  text-align: center;
+}
+
+th {
+  background-color: #bebec3;
+}
+
+.bg {
+  background-color: #3d231b;
+}
+
+.sidebar {
+  width: 23.93vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 7px;
+  background-color: #7b3;
+  border-right: 1px solid black;
+}
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.iconDiv i {
+  color: rgb(0, 97, 41);
+  padding-right: 15px;
+}
+
+.iconDiv {
+  font-weight: 100;
+  padding-top: 25px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  margin-top: 20px;
+  color: #fff;
+}

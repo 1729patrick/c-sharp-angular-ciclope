@@ -1,0 +1,2618 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ciclope</name>
+    </assembly>
+    <members>
+        <member name="T:Ciclope.Controllers.TBL_Docs_IVA_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro IVA
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.GetTBL_Docs_IVA(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Docs_IVA_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.GetTBL_Docs_IVA(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Docs_IVA_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.PutTBL_Docs_IVA(System.String,System.Int32,Ciclope.Models.UpdateClasses.IvaUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Docs_IVA_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="dRIUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.PostTBL_Docs_IVA(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Docs_IVA_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.DeleteTBL_Docs_IVA(System.String,System.Int32)">
+             <summary>
+             Deletes a specific IVA.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Docs_IVA_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of IVA documento de pagamento
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Docs_IVA_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Docs_IVA_APIController.DownloadCertificado(System.String,System.Int32)">
+             <summary>
+             Get File of IVA Comprovativo de pagamento
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Docs_IVA_API/{apiKey}/Comprovativo/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Certidao AT
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.GetTBL_Doc_CertidaoAT(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_CertidaoAT_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.GetTBL_Doc_CertidaoAT(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoAT_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Api Key For Company</param>
+             <param name="id">File Id</param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.PutTBL_Doc_CertidaoAT(System.String,System.Int32,Ciclope.Models.NewFolder.CertidaoATUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_CertidaoAT_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="certidaoAT"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.PostTBL_Doc_CertidaoAT(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoAT_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.DeleteTBL_Doc_CertidaoAT(System.String,System.Int32)">
+             <summary>
+             Deletes a specific CertidaoAT.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_CertidaoAT_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoAT_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of CertidaoAT
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_CertidaoAT_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Certidao SS
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.GetTBL_Doc_CertidaoSS(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoSS_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.GetTBL_Doc_CertidaoSS(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoSS_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.PutTBL_Doc_CertidaoSS(System.String,System.Int32,Ciclope.Models.UpdateClasses.CertidaoSSUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoSS_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <param name="certidaoSS"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.PostTBL_Doc_CertidaoSS(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertidaoSS_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.DeleteTBL_Doc_CertidaoSS(System.String,System.Int32)">
+             <summary>
+             Deletes a specific CertidaoSS.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_CertidaoSS_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertidaoSS_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of CertidaoSS
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_CertidaoSS_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Certificado PME
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.GetTBL_Doc_CertificadoPME(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_CertificadoPME_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.GetTBL_Doc_CertificadoPME(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertificadoPME_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Api Key For Company</param>
+             <param name="id">File Id</param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.PutTBL_Doc_CertificadoPME(System.String,System.Int32,Ciclope.Models.UpdateClasses.CertificadoPMEUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertificadoPME_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <param name="certificadoPME"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.PostTBL_Doc_CertificadoPME(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_CertificadoPME_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.DeleteTBL_Doc_CertificadoPME(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Certificado PME.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_CertificadoPME_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_CertificadoPME_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of Certificado PME
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_CertificadoPME_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_Dmr_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro DMR
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.GetTBL_Doc_Dmr(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_Dmr_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.GetTBL_Doc_Dmr(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_Dmr_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Api Key For Company</param>
+             <param name="id">File Id</param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.PutTBL_Doc_Dmr(System.String,System.Int32,Ciclope.Models.UpdateClasses.DmrUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_Dmr_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <param name="dmrUpdate"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.PostTBL_Doc_Dmr(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_Dmr_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.DeleteTBL_Doc_Dmr(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Dmr.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_Dmr_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of DMR
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_Dmr_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Dmr_APIController.DownloadDec(System.String,System.Int32)">
+             <summary>
+             Get Declaracao of DMR
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_Dmr_API/{apiKey}/Declaracao/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_DRI_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Dri
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.GetTBL_Doc_DRI(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_DRI_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.GetTBL_Doc_DRI(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_DRI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.PutTBL_Doc_DRI(System.String,System.Int32,Ciclope.Models.UpdateClasses.DRIUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_DRI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="dRIUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.PostTBL_Doc_DRI(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_DRI_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.DeleteTBL_Doc_DRI(System.String,System.Int32)">
+             <summary>
+             Deletes a specific DRI.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_DRI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_DRI_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of DRI
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_DRI_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController">
+            <summary>
+            Classes responsável pelo api referente aos Fundos de Compensação
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.GetTBL_Doc_FundosCompensacao(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_FundosCompensacao_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.GetTBL_Doc_FundosCompensacao(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_FundosCompensacao_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.PutTBL_Doc_FundosCompensacao(System.String,System.Int32,Ciclope.Models.UpdateClasses.FundosUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_FundosCompensacao_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="dRIUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.PostTBL_Doc_FundosCompensacao(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_FundosCompensacao_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.DeleteTBL_Doc_FundosCompensacao(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Fundos Compensacao.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_FundosCompensacao_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_FundosCompensacao_APIController.DownloadFile(System.String,System.Int32)">
+             <summary>
+             Get File of Fundos de Compensacao
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_FundosCompensacao_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_IES_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro IES
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.GetTBL_Doc_IES(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IES_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.GetTBL_Doc_IES(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IES_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.PutTBL_Doc_IES(System.String,System.Int32,Ciclope.Models.UpdateClasses.IesUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_IES_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="iesUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.PostTBL_Doc_IES(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IES_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.DeleteTBL_Doc_IES(System.String,System.Int32)">
+             <summary>
+             Deletes a specific IES.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_IES_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of IES
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IES_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.DownloadGuiaDePagamento(System.String,System.Int32)">
+             <summary>
+             Get File of IES
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IES_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IES_APIController.DownloadComprovativo(System.String,System.Int32)">
+             <summary>
+             Get File of IES
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IES_API/{apiKey}/Comprovativo/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Ke</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_IMI_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro IMI
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.GetTBL_Doc_IMI(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api//api/TBL_Doc_IMI_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.GetTBL_Doc_IMI(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IMI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.PutTBL_Doc_IMI(System.String,System.Int32,Ciclope.Models.UpdateClasses.IMIUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_IMI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="iMIUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.PostTBL_Doc_IMI(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IMI_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.DeleteTBL_Doc_IMI(System.String,System.Int32)">
+             <summary>
+             Deletes a specific IMI.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_IMI_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IMI_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of IMI
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IMI_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_IUC_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro IUC
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.GetTBL_Doc_IUC(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IUC_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.GetTBL_Doc_IUC(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IUC_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.PutTBL_Doc_IUC(System.String,System.Int32,Ciclope.Models.UpdateClasses.IucUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_IUC_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="iucUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.PostTBL_Doc_IUC(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_IUC_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.DeleteTBL_Doc_IUC(System.String,System.Int32)">
+             <summary>
+             Deletes a specific IUC.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_IUC_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_IUC_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of IMI
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_IUC_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_M22_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro M22
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.GetTBL_Doc_M22(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_M22_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.GetTBL_Doc_M22(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_M22_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.PutTBL_Doc_M22(System.String,System.Int32,Ciclope.Models.UpdateClasses.M22Update)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_M22_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="m22Update"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.PostTBL_Doc_M22(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_M22_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.DeleteTBL_Doc_M22(System.String,System.Int32)">
+             <summary>
+             Deletes a specific M22.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_M22_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of M22
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_M22_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_M22_APIController.DownloadComprovativo(System.String,System.Int32)">
+             <summary>
+             Get File of M22
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_M22_API/{apiKey}/Comprovativo/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Recibos Verdes
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.GetTBL_Doc_RecibosVerdes(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RecibosVerdes_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.GetTBL_Doc_RecibosVerdes(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_RecibosVerdes_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.PutTBL_Doc_RecibosVerdes(System.String,System.Int32,Ciclope.Models.UpdateClasses.RecibosUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_RecibosVerdes_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="recibosUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.PostTBL_Doc_RecibosVerdes(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_RecibosVerdes_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.DeleteTBL_Doc_RecibosVerdes(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Recibo Verde.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_RecibosVerdes_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RecibosVerdes_APIController.DownloadFicheiro(System.String,System.Int32)">
+             <summary>
+             Get File of Recibos Verdes
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RecibosVerdes_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Relatorio Unico
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.GetTBL_Doc_RelatorioUnico(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response> 
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.GetTBL_Doc_RelatorioUnico(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_RelatorioUnico_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.PostTBL_Doc_RelatorioUnico(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_RelatorioUnico_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DeleteTBL_Doc_RelatorioUnico(System.String,System.Int32)">
+             <summary>
+             Deletes a specific RelatorioUnico.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_RelatorioUnico_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexo0(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexo0/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoA(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoA/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoB(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoB/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoC(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoC/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoD(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoD/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoE(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoE/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadAnexoF(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/LocalAnexoF/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_RelatorioUnico_APIController.DownloadCertificado(System.String,System.Int32)">
+             <summary>
+             Get File of RU
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_RelatorioUnico_API/{apiKey}/Certificado/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Doc_Rendas_APIController">
+            <summary>
+            Classes responsável pelo api referente ao ficheiro Dri
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.GetTBL_Doc_Rendas(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_Rendas_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.GetTBL_Doc_Rendas(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_Rendas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.PutTBL_Doc_Rendas(System.String,System.Int32,Ciclope.Models.UpdateClasses.RendaUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Doc_Rendas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="rendaUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.PostTBL_Doc_Rendas(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Doc_Rendas_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.DeleteTBL_Doc_Rendas(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Renda.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Doc_Rendas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Doc_Rendas_APIController.DownloadCertificado(System.String,System.Int32)">
+             <summary>
+             Get File of DRI
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Doc_Rendas_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Controllers.TBL_Faturas_APIController">
+            <summary>
+            Classes responsável pelo api referente a Fatura
+            </summary>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.#ctor(Ciclope.Data.ApplicationDbContext)">
+            <summary>
+            Inicialização da classe
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.GetTBL_Faturas(System.String)">
+             <summary>
+             Get all data from files
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Faturas_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.GetTBL_Faturas(System.String,System.Int32)">
+             <summary>
+             Get data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Faturas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company Api Key</param>
+             <param name="id">File Id</param>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.PutTBL_Faturas(System.String,System.Int32,Ciclope.Models.UpdateClasses.FaturaUpdate)">
+             <summary>
+             Update data from a file
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/TBL_Faturas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id":1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <param name="faturaUpdate"></param>
+             <returns></returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.PostTBL_Faturas(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+             <summary>
+             Insert new Pdf File
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/TBL_Faturas_API/{apiKey}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="file">Pdf File</param>
+             <returns>Data from file</returns>
+             <response code="404">If the file was not found</response>   
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.DeleteTBL_Faturas(System.String,System.Int32)">
+             <summary>
+             Deletes a specific Fatura.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 Delete /api/TBL_Faturas_API/{apiKey}/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>Nothing</returns>
+             <response code="204">If File Was Deleted</response>
+             <response code="404">If the file was not found</response>    
+        </member>
+        <member name="M:Ciclope.Controllers.TBL_Faturas_APIController.DownloadCertificado(System.String,System.Int32)">
+             <summary>
+             Get File of Fatura
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/TBL_Faturas_API/{apiKey}/Ficheiro/{id}
+                 {
+                    "apiKey": 31A385D3-5D25-44E8-88F3-839DB1948EB0,
+                    "id": 1
+                 }
+            
+             </remarks>
+             <param name="apiKey">Company API Key</param>
+             <param name="id">File Id</param>
+             <returns>PDF File</returns>
+        </member>
+        <member name="T:Ciclope.Models.NewFolder.CertidaoATUpdate">
+            <summary>
+            Classes usada para o update API a certidao AT
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.NewFolder.CertidaoATUpdate.CodigoValidacao">
+            <summary>
+            Codigo de Validação da AT
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.NewFolder.CertidaoATUpdate.DataValidade">
+            <summary>
+            Data de Validade da Certidão
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.CertidaoSSUpdate">
+            <summary>
+            Classes usada para o update API a certidao SS
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.CertidaoSSUpdate.DataEmissao">
+            <summary>
+            Data Inicio da Validade da Certidao
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.CertidaoSSUpdate.DataFimValidade">
+            <summary>
+            Data Fim da Valilade da Certidao
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.CertificadoPMEUpdate">
+            <summary>
+            Classes usada para o update API a certificado PME
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.CertificadoPMEUpdate.IdClassificacao">
+            <summary>
+            Identificação do Documento pela autoridade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.CertificadoPMEUpdate.DataDecissao">
+            <summary>
+            Data da Classificacao
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.CertificadoPMEUpdate.DataEfeito">
+            <summary>
+            Data de Efeito de Decissao
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.DmrUpdate">
+            <summary>
+            Classes usada para o update API a dmr
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.Nome">
+            <summary>
+            Nome da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.Morada">
+            <summary>
+            Morada da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.Localidade">
+            <summary>
+            Localidade da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.CodigoPostal">
+            <summary>
+            Codigo postal da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.Periodo">
+            <summary>
+            Periodo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.IdDeclaracao">
+            <summary>
+            Identificacao do ficheiro pela entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.DataRececaoDeclaracao">
+            <summary>
+            Data da Recepção da Declaração
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.ReferenciaPagamento">
+            <summary>
+            Referencia de Pagamento 
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.LinhaOptica">
+            <summary>
+            Linha Optica
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DmrUpdate.ImportanciaPagar">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.DRIUpdate">
+            <summary>
+            Classes usada para o update API a DRI
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.DataEntrega">
+            <summary>
+            Data Entrega da Dri
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.DataRegisto">
+            <summary>
+            Data Registo da Dri
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.Identificador">
+            <summary>
+            Identificacao do ficheiro pela entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.Estado">
+            <summary>
+            Estado do Dri
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.NIdentificacaoSS">
+            <summary>
+            Numero de identificação social
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.Nome">
+            <summary>
+            Nome da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.TotalRemuneracoes">
+            <summary>
+            Total Remunerações
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.DRIUpdate.TotalContribuicoes">
+            <summary>
+            Total Contribuições
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.FaturaUpdate">
+            <summary>
+            Classes usada para o update API a Iva
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.Numero">
+            <summary>
+            Numero da Fatura
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.Descricao">
+            <summary>
+            Descricao da Fatura
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.Valor">
+            <summary>
+            Valor da Fatura
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.Entidade">
+            <summary>
+            Entidade 
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FaturaUpdate.ValorIva">
+            <summary>
+            Valor Iva
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.FundosUpdate">
+            <summary>
+            Classes usada para o update API aos fundos compensação
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.DataEmissao">
+            <summary>
+            Data Emissao do fundo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.PeriodoPagamentoInicio">
+            <summary>
+            Periodo Pagamento Inicio
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.PeriodoPagamentoFim">
+            <summary>
+            Periodo Pagamento Fim
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.Nome">
+            <summary>
+            Nome da Empresa
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.Niss">
+            <summary>
+            Numero de identificação Segurança Social
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.Valor">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.Entidade">
+            <summary>
+            Entidade do pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.FundosUpdate.Referencia">
+            <summary>
+            Referencia do pagamento
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.IesUpdate">
+            <summary>
+            Classes usada para o update API ao IES
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.DataValidade">
+            <summary>
+            Data de Validade
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.Nif">
+            <summary>
+            Nif
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.Valor">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.Referencia">
+            <summary>
+            Referencia de pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IesUpdate.Entidade">
+            <summary>
+            Entidade
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.IMIUpdate">
+            <summary>
+            Classes usada para o update API ao IES
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.IdentificacaoFiscal">
+            <summary>
+            Identificação Fiscal
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.AnoImposto">
+            <summary>
+            Ano de Imposto
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.IdentificacaoDocumento">
+            <summary>
+            Identificacao do documento com a entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.DataLiquidacao">
+            <summary>
+            Data de Liquidacao
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.ReferenciaPagamento">
+            <summary>
+            Referencia de Pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.ImportanciaPagar">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.AnoPagamento">
+            <summary>
+            Ano de pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IMIUpdate.MesPagamento">
+            <summary>
+            Mes de pagamento
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.IucUpdate">
+            <summary>
+            Classes usada para o update API ao IUC
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.Matricula">
+            <summary>
+            Matricula do veiculo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.Ano">
+            <summary>
+            Ano de veiculo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.Mes">
+            <summary>
+            Mes do veiculo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.IdentificacaoFicheiro">
+            <summary>
+            Identificacao do documento com a entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.Data">
+            <summary>
+            Data de IUC
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.IdentificacaoFiscal">
+            <summary>
+            Identificação fiscal
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.Morada">
+            <summary>
+            Morada
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.DataLimite">
+            <summary>
+            Data Limite de pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.ReferenciaPagamento">
+            <summary>
+            Referencia de pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IucUpdate.ImportanciaPagar">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.IvaUpdate">
+            <summary>
+            Classes usada para o update API a Iva
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Nome">
+            <summary>
+            Nome da Entidade
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Morada">
+            <summary>
+            Morada da Entidade
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Localidade">
+            <summary>
+            Localidade
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.CodigoPostal">
+            <summary>
+            Codigo postal
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Periodo">
+            <summary>
+            Periodo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.IdDeclaracao">
+            <summary>
+            Identificação do Documento pela autoridade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.DataRececaoDeclaracao">
+            <summary>
+            Data de recepção da Daclaracao
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Referencia">
+            <summary>
+            Referencia de pagamento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.LinhaOptica">
+            <summary>
+            Linha optica
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.IvaUpdate.Valor">
+            <summary>
+            Valor do pagamento
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.M22Update">
+            <summary>
+            Classes usada para o update API ao M22
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.IdDeclaracao">
+            <summary>
+            Identificacao do documento com a entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.Ano">
+            <summary>
+            Ano a que o ficheiro se refere
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.IdentDocumento">
+            <summary>
+            Identificacao do documento com a entidade que o emitiu
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.IdentificacaoFiscal">
+            <summary>
+            Identificacao fiscal
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.ImportanciaPagar">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.M22Update.RefPagamento">
+            <summary>
+            Referencia de pagamento
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.RecibosUpdate">
+            <summary>
+            Classes usada para o update API ao Recibos Verdes
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.TransmitenteNome">
+            <summary>
+            Nome da entidade contratada
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.TransmitenteAtividade">
+            <summary>
+            Atividade Contratada
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.TransmitenteNif">
+            <summary>
+            Nif da Entidade contratada
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.TransmitenteDomicilio">
+            <summary>
+            Morada da entidade Contratada
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.AdquirenteNome">
+            <summary>
+            Nome da Entidade Empregadora
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.AdquirenteMorada">
+            <summary>
+            Morada da entidade Empregadora
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.AdquirenteNif">
+            <summary>
+            Nif da entidade Empregadora
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosDataTransmissao">
+            <summary>
+            Data da Transmissao
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosDescricao">
+            <summary>
+            Descricao dos dados
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosValorBase">
+            <summary>
+            Valor base
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosIva">
+            <summary>
+            Valor do IVA
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosImpostoSelo">
+            <summary>
+            Valor do imposto Selo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RecibosUpdate.DadosIRS">
+            <summary>
+            Valor do IRS
+            </summary>
+        </member>
+        <member name="T:Ciclope.Models.UpdateClasses.RendaUpdate">
+            <summary>
+            Classes usada para o update API ao Rendas
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.EntidadeNome">
+            <summary>
+            Nome da entidade a arendar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.EntidadeNif">
+            <summary>
+            Nif da entidade a arendar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.LocatorioNome">
+            <summary>
+            Nome da Entidade a alugar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.LocatorioNif">
+            <summary>
+            Nif da Entidade a alugar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.Arrendamento">
+            <summary>
+            Esta a arrendar?
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.Localizacao">
+            <summary>
+            Localização do imovel
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.PeriodoRendaInicio">
+            <summary>
+            Data de Inicio da renda
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.PeriodoRendaFim">
+            <summary>
+            Data de Fim da Renda
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.Titulo">
+            <summary>
+            Titulo
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.DataRecebimento">
+            <summary>
+            Data do Recebimento
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.RetencaoIRS">
+            <summary>
+            Valor do IRS
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.ImportanciaRecebida">
+            <summary>
+            Valor a pagar
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.NRecibosVenda">
+            <summary>
+            Numero de Recibos da Venda
+            </summary>
+        </member>
+        <member name="P:Ciclope.Models.UpdateClasses.RendaUpdate.DataEmissao">
+            <summary>
+            Data de Emissao da Renda
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,47 @@
+﻿@model Ciclope.Models.DocCertidaoAT
+
+@{
+    ViewData["Title"] = "Criar Certidão de não dívida AT";
+    var idEmpresa = @ViewBag.idEmpresa;
+}
+<div class="row h-100 ">
+    <partial name="_DisplaySideMenuPartial" for="@idEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form method="post" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label class="control-label">Escolha a certidão não dívida AT</label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="files" id="uploadBox" class="form-control" style="height: 44px" />
+                </div>
+                <input type="hidden" asp-for="IdEmpresa" value=@ViewBag.IdEmpresa />
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@ViewBag.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <button type="submit" onclick="return validateInput()" class="btn btn-sm btn-outline-secondary form-control">Criar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    @section Scripts{
+        <script src="https://cdn.tiny.cloud/1/n94ifuzvl80pchikopiwgz2esrw8n28dwcywvpejlqrregfp/tinymce/5/tinymce.min.js"></script>
+        <script>
+            function validateInput() {
+                if (document.getElementById("uploadBox").value == "") {
+                    swal("Erro", "Por favor, selecione o Certidao AT", "error");
+                    return false;
+                }
+                return true;
+            };
+        </script>
+    }
+

@@ -1,0 +1,60 @@
+@model Ciclope.Models.Faturas
+
+@{
+    ViewData["Title"] = "Editar Fatura";
+}
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="EmpresaId" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="EmpresaId" />
+            <input type="hidden" asp-for="LocalFicheiro" />
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="numero" class="control-label"></label>
+                    <input asp-for="numero" class="form-control" />
+                    <span asp-validation-for="numero" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Valor" class="control-label"></label>
+                    <input asp-for="Valor" class="form-control" />
+                    <span asp-validation-for="Valor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="Entidade" class="control-label"></label>
+                    <input asp-for="Entidade" class="form-control" />
+                    <span asp-validation-for="Entidade" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="QRcode" class="control-label"></label>
+                    <input asp-for="QRcode" class="form-control" />
+                    <span asp-validation-for="QRcode" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Data" class="control-label"></label>
+                    <input asp-for="Data" class="form-control" />
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.EmpresaId class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

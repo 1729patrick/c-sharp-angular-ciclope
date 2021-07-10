@@ -1,0 +1,84 @@
+﻿@model Ciclope.Models.DocM22
+
+@{
+    ViewData["Title"] = "Editar M22";
+}
+
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    .col {
+        flex-grow: 0;
+    }
+</style>
+
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial" for="IdEmpresa" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdEmpresa" />
+            <input type="hidden" asp-for="LocalFicheiro" />
+            <div class="form-group row">
+                <div class="col">
+                    <label asp-for="IdDeclaracao" class="control-label"></label>
+                    <input asp-for="IdDeclaracao" class="form-control" />
+                    <span asp-validation-for="IdDeclaracao" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Ano" class="control-label"></label>
+                    <input asp-for="Ano" class="form-control" />
+                    <span asp-validation-for="Ano" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="IdentDocumento" class="control-label"></label>
+                    <input asp-for="IdentDocumento" class="form-control" />
+                    <span asp-validation-for="IdentDocumento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col" style="display:none">
+                    <label asp-for="LocalComprovativo" class="control-label"></label>
+                    <input asp-for="LocalComprovativo" class="form-control" />
+                    <span asp-validation-for="LocalComprovativo" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="IdentificacaoFiscal" class="control-label"></label>
+                    <input asp-for="IdentificacaoFiscal" class="form-control" />
+                    <span asp-validation-for="IdentificacaoFiscal" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="ImportanciaPagar" class="control-label"></label>
+                    <input asp-for="ImportanciaPagar" class="form-control" />
+                    <span asp-validation-for="ImportanciaPagar" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="RefPagamento" class="control-label"></label>
+                    <input asp-for="RefPagamento" class="form-control" />
+                    <span asp-validation-for="RefPagamento" class="text-danger"></span>
+                </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label asp-for="LocalComprovativo" class="control-label"></label>
+                        <input type="file" name="LocalComprovativo" class="form-control" style="height: 44px" />
+                        <span asp-validation-for="LocalComprovativo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.IdEmpresa class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Guardar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

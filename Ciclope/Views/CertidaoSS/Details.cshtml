@@ -1,0 +1,42 @@
+﻿@model Ciclope.Models.DocCertidaoSS
+
+@{
+    ViewData["Title"] = "Certidão SS";
+}
+
+<style>
+    .containerPDF {
+        width: 100%;
+        height: 500px;
+        margin: 0 auto;
+        margin-bottom: 1rem !important;
+    }
+</style>
+
+<div class="row h-100">
+    <partial name="_DisplaySideMenuPartial"  for="IdEmpresa"/>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">@ViewData["Title"]</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                    <a href="@Url.Action("DownloadFile", "CertidaoSS", new { id = Model.Id})" class="btn btn-sm btn-outline-secondary">
+                        Certidão
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-flex">
+            <div class="col-md-6">
+                <p style="margin-left: 20px;">Data Emissão: @Model.DataEmissao.ToString("d")</p>
+                <p style="margin-left: 20px;">Data fim validade: @Model.DataFimValidade.ToString("d")</p>
+            </div>
+            <div class="col-md-6">
+                <div class="containerPDF">
+                    <embed src="@Url.Action("GetFile", "CertidaoSS", new { id = Model.Id})" style="width:100%; height:500px; border-radius:5px; border:1px solid #bbb9b9">
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

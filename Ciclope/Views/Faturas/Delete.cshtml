@@ -1,0 +1,44 @@
+@model Ciclope.Models.Faturas
+
+@{
+    ViewData["Title"] = "Apagar Fatura";
+}
+
+<style>
+    .containerPDF {
+        width: 100%;
+        height: 70vh;
+        margin: 0 auto;
+        margin-bottom: 1rem !important;
+    }
+
+    .myimg {
+        width: 100%;
+        height: 100%;
+        zoom: 20%;
+        border-radius: 5px;
+        border: 1px solid #bbb9b9;
+    }
+</style>
+
+<div class="row h-100 ">
+    <partial name="_DisplaySideMenuPartial" for="EmpresaId" />
+    <div class="col-md-10 row h-100 justify-content-center align-items-center">
+        <form asp-action="Delete">
+            <h1>@ViewData["Title"]</h1>
+            <hr />
+            <input type="hidden" asp-for="Id" />
+            <div class="containerPDF">
+                <img src="@Url.Action("GetFile", "Faturas", new { id = Model.Id})" class="myimg">
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <a asp-action="Index" asp-route-id=@Model.EmpresaId class="btn btn-sm btn-outline-secondary form-control">Voltar</a>
+                </div>
+                <div class="col">
+                    <input type="submit" value="Apagar" class="btn btn-sm btn-outline-secondary form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

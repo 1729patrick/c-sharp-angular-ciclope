@@ -1,0 +1,34 @@
+<div class="container">
+  <app-loading *ngIf="!dividas"></app-loading>
+  
+  <div class="content">
+    <h3>Evolução das dívidas</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Selecione o período</mat-label>
+      <mat-date-range-input [rangePicker]="picker" >
+        <input matStartDate placeholder="Start date" #startDate>
+        <input matEndDate placeholder="End date" #endDate (dateChange)="dateRangeChange(startDate, endDate)">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+  
+
+  <ngx-charts-line-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [timeline]="timeline"
+  [results]="dividas"
+  [legendTitle]="legendTitle">
+  >
+</ngx-charts-line-chart>
+</div>
